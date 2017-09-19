@@ -19,8 +19,23 @@ public class Notebook {
     }
 
     @Command
+    public void createNote(String text) {
+        Note n = new Note();
+        n.setText(text);
+        records.add(n);
+    }
+
+    @Command
+    public void createReminder(String time, String text) {
+        Reminder t = new Reminder();
+        t.setText(text);
+        t.setTime(time);
+        records.add(t);
+    }
+
+    @Command
     public void remove(int id) {
-        for (int i=0; i < records.size(); i++) {
+        for (int i = 0; i < records.size(); i++) {
             Record r = records.get(i);
             if (r.getId() == id) {
                 records.remove(i);
@@ -33,4 +48,6 @@ public class Notebook {
     public List<Record> list() {
         return records;
     }
+
 }
+
