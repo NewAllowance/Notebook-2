@@ -34,6 +34,15 @@ public class Notebook {
     }
 
     @Command
+    public void createAlarm(String alarm, String text) {
+        Alarm g = new Alarm();
+        g.setText(text);
+        g.setAlarm(alarm);
+        records.add(g);
+    }
+
+
+    @Command
     public void remove(int id) {
         for (int i = 0; i < records.size(); i++) {
             Record r = records.get(i);

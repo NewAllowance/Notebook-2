@@ -42,6 +42,8 @@ public class Person extends Record {
         this.email = email;
     }
 
+
+
     @Override
     public String toString() {
         return "Person{" +
@@ -51,5 +53,34 @@ public class Person extends Record {
                 ", email='" + email + '\'' +
                 ", phones=" + phones +
                 '}';
+    }
+
+
+    @Override
+    public boolean contains(String str) {
+
+        String strLower = str.toLowerCase();
+        String firstNameLower = firstName.toLowerCase();
+        String lastNameLower = lastName.toLowerCase();
+        String emailLower = email.toLowerCase();
+
+
+        if (lastName.contains(strLower)) {
+            return true;
+        } else if (firstNameLower.contains(strLower)) {
+            return true;
+        } else if (emailLower.contains(strLower)) {
+            return true;
+        } else if (lastNameLower.contains(strLower)) {
+            return true;
+        } else {
+            for (String p : phones) {  //p = stroka
+              if (p.toLowerCase().contains(strLower)) {
+                  return true;
+              }
+            }
+        }
+
+        return false;
     }
 }
